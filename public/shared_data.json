@@ -1,0 +1,104 @@
+{
+    "basic_info": {
+      "name": "Berk Algul",
+      "titles": [ "Full Stack Developer", "Software Developer", "AI Enthusiast"],
+      "social": [
+        {
+          "name": "github",
+          "url": "https://github.com/berkalgl",
+          "class": "fab fa-github"
+        },
+        {
+          "name": "linkedin",
+          "url": "https://www.linkedin.com/in/berkalgul/",
+          "class": "fab fa-linkedin"
+        },
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/berkalgll/",
+          "class": "fab fa-instagram"
+        },
+        {
+          "name": "twitter",
+          "url": "https://twitter.com/BerkAlgl",
+          "class": "fab fa-twitter"
+        }
+      ],
+      "image": "profile1.jpg"
+    },
+    "skills": {
+      "icons": [
+        {
+          "name": "React",
+          "class": "devicon-react-plain",
+          "level": "80"
+        },
+        {
+          "name": "Ruby",
+          "class": "devicon-ruby-plain",
+          "level": "90"
+        },
+        {
+          "name": "JavaScript",
+          "class": "devicon-javascript-plain",
+          "level": "70"
+        },
+        {
+          "name": "Python",
+          "class": "devicon-python-plain",
+          "level": "95"
+        },
+        {
+          "name": "Csharp",
+          "class": "devicon-csharp-plain",
+          "level": "95"
+        },
+        {
+          "name": "Rails",
+          "class": "devicon-rails-plain",
+          "level": "85"
+        },
+        {
+          "name": "Postgresql",
+          "class": "devicon-postgresql-plain",
+          "level": "75"
+        },
+        {
+          "name": "MongoDb",
+          "class": "devicon-mongodb-plain",
+          "level": "60"
+        },
+        {
+          "name": "Express",
+          "class": "devicon-express-original",
+          "level": "65"
+        },
+        {
+          "name": "Nodejs",
+          "class": "devicon-nodejs-plain",
+          "level": "65"
+        },
+
+        {
+          "name": "HTML 5",
+          "class": "devicon-html5-plain",
+          "level": "95"
+        },
+        {
+          "name": "CSS 3",
+          "class": "devicon-css3-plain",
+          "level": "95"
+        },
+        {
+           "name": "Amazon Web Services",
+          "class": "devicon-amazonwebservices-original",
+          "level": "95"
+        },
+        {
+           "name": "Heroku",
+          "class": "devicon-heroku-original",
+          "level": "95"
+        }
+      ]
+    }
+  }

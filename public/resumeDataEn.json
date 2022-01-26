@@ -1,0 +1,131 @@
+{
+    "basic_info": {
+      "description_header": "Hi there !",
+      "description": "My name is Canberk Varli and I'm a software developer with experience building web applications using JavaScript, React/Redux, Ruby on Rails, SQL, Node.js, Mongoose, Express.js, MongoDB. Successfully finished the curriculum at App Academy, a highly selective and immersive Software Engineering bootcamp that I spent over 100 hours per week enhancing my skills and exposing myself to a myriad of cutting-edge technologies. In my free time, I enjoy being with nature, playing basketball and catching as many waves as I can. Along with that, I like to read philosophy and contemplate the concepts in life.",
+      "section_name": {
+        "about": "About me",
+        "projects": "Projects",
+        "skills": "Skills",
+        "experience": "Experience"
+      }
+    },
+    "projects": [
+      {
+        "title": "Forest Library",
+        "startDate": "2021",
+        "description": "ForestLibrary is an interactive social network for users to encourage themselves in reading books and interact with other book readers. Within the application, every user is a tree and every branch is a book category (e.g. horror, romance, history) and every leaf is a book that they accomplished reading. ForestLibrary welcomes the non-existing and existing users with a forest at the home page. As it is possible to guess easily, the forest is the collection of users as trees. Users also have the option to create their forests which are basically the book clubs!",
+        "images": [
+          "images/portfolio/forestlibrary/FLMainPage.png",
+          "images/portfolio/forestlibrary/modal.png",
+          "images/portfolio/forestlibrary/myTreeImage.png"
+        ],
+        "url": "https://forest-library.herokuapp.com/#/",
+
+        "live": "https://forest-library.herokuapp.com/#/",
+        "link": "https://github.com/lamjay415/ForestLibrary",
+        "technologies": [
+          {
+            "class": "devicon-react-plain",
+            "name": "React"
+          },
+          {
+            "class": "devicon-mongodb-plain",
+            "name": "Mongodb"
+          },
+          {
+            "class": "devicon-nodejs-plain",
+            "name": "Nodejs"
+          },
+          {
+            "class": "devicon-express-original",
+            "name": "Express"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "Css"
+          }
+        ]
+      },
+      {
+        "title": "Sonar",
+        "startDate": "2021",
+        "description": "Sonar is a web page, clone of SoundCloud built with Ruby on Rails, ReactJS, and Redux. On Sonar, artists are able to upload their tracks for the world to stream, share, and like.",
+        "images": [
+          "images/portfolio/sonar/homepage.png",
+          "images/portfolio/sonar/trackIndex.png",
+          "images/portfolio/sonar/track .png"
+        ],
+        "url": "http://appsonar.herokuapp.com/#/",
+        "live": "http://appsonar.herokuapp.com/#/",
+        "link": "https://github.com/canberkvarli/sonar",
+        "technologies": [
+          {
+            "class": "devicon-react-original",
+            "name": "React"
+          },
+          {
+            "class": "devicon-javascript-plain",
+            "name": "JavaScript"
+          },
+          {
+            "class": "devicon-ruby-plain",
+            "name": "Ruby"
+          },
+          {
+            "class": "devicon-amazonwebservices-plain-wordmark",
+            "name": "AWS"
+          },
+          {
+            "class": "devicon-heroku-original",
+            "name": "Heroku"
+          }
+
+        ]
+      },
+      {
+        "title": "Spark",
+        "startDate": "2021",
+        "description": "Spark is an interactive demo project which is intented to improve the frontend skills of the oneself as well as creating a musical spark within every soul in the world. Anyone who is curious, interested, or even just to play around with it can find something bigger in themselves that I hope Spark will illuminate their emotions and ideas into music.",
+        "images": [
+          "images/portfolio/spark/homepage.png",
+          "images/portfolio/spark/spark2.png"
+        ],
+        "url": "https://canberkvarli.github.io/spark/",
+        "live": "https://canberkvarli.github.io/spark/",
+        "link": "https://github.com/canberkvarli/spark",
+        "technologies": [
+          {
+            "class": "devicon-javascript-plain",
+            "name": "Javascript"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML5"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "Css3"
+          }
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "company": "Microsoft",
+        "title": "Developer Experience and Evangelism Intern",
+        "years": "07.2017 - 08.2017",
+        "mainTech": [
+          "Xamarin"
+        ],
+        "technologies": [
+          "C#",
+          "Xamarin",
+          "XAML"
+        ]
+      }
+    ]
+  }

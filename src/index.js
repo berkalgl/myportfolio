@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* GLOBAL VARIABLES */
+
+window.$primaryLanguage = 'en';
+window.$secondaryLanguage = 'tr';
+window.$primaryLanguageIconId = 'primary-lang-icon';
+window.$secondaryLanguageIconId = 'secondary-lang-icon';
 
 ReactDOM.render(
   <React.StrictMode>
