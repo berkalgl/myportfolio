@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './App.scss';
 import Header from './components/Header';
 import LanguageIcons from "./components/LanguageIcons";
@@ -9,8 +9,8 @@ export default function App() {
   const [resumeData, setResumeData] = React.useState({});
   const [sharedData, setSharedData] = React.useState({});
 
-  const loadResumeFromPath = (path) => {
-    Get(
+  const loadResumeFromPath = async (path) => {
+    await Get(
       path,
       (data) => {
         setResumeData(data);
@@ -20,8 +20,8 @@ export default function App() {
       });
   }
   
-  const loadSharedData = () => {
-    Get(
+  const loadSharedData = async () => {
+    await Get(
       'shared_data.json',
       (data) => {
         setSharedData(data);
@@ -31,11 +31,22 @@ export default function App() {
       });
   }  
 
-  return (
-    <div>
-      <Header></Header>
-      <Intro sharedData={sharedData.basic_info}></Intro>
-      <LanguageIcons loadResumeFromPathCallback = {loadResumeFromPath}></LanguageIcons>
-    </div>
-  )
+  React.useEffect(() => {
+    loadSharedData();
+  }, [])
+
+  if(sharedData.basic_info !== undefined)
+  {
+    return (
+      <div>
+        <Header></Header>
+        <Intro sharedData={sharedData.basic_info}></Intro>
+        <LanguageIcons loadResumeFromPathCallback = {loadResumeFromPath}></LanguageIcons>
+      </div>
+    )
+  }else{
+    return(
+      <div>Loading..</div>
+    )
+  }
 }
