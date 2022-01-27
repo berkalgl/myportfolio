@@ -8,18 +8,21 @@ class Intro extends Component {
         super(props);
         this.state = {
           titles : [],
-          socials : []
+          socials : [],
+          name: ''
         };
     }
 
-
-    render() {
-
+    componentDidMount() {
         if (this.props.sharedData) {
-            var name = this.props.sharedData.name;
+            this.setState({name: this.props.sharedData.name});
             this.setState({titles: this.props.sharedData.titles.map(x => [ x.toUpperCase(), 1500 ] ).flat()});
             this.setState({socials: this.props.sharedData.social});
         }
+    }
+
+    render() {
+
 
         const HeaderTitleTypeAnimation = React.memo(() => {
             return <Typical className="title-styles" steps={this.state.titles} loop={50}></Typical>
@@ -33,7 +36,7 @@ class Intro extends Component {
                             <span className="iconify intro-icon" data-icon="la:laptop-code" data-inline="false "></span>
                             <br/>
                             <h1 className="mb-0">
-                                <Typical steps={[name]} wrapper="p"/>
+                                <Typical steps={[this.state.name]} wrapper="p"/>
                             </h1>
                             <div className="title-container">
                                 <HeaderTitleTypeAnimation></HeaderTitleTypeAnimation>

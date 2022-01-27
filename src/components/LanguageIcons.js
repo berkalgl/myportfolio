@@ -6,7 +6,7 @@ class LanguageIcons extends Component {
         this.changeCurrentActiveLang(oppositeLangIconId);
         document.documentElement.lang = pickedLanguage;
         var resumeDataPath = document.documentElement.lang === window.$primaryLanguage ? 'resumeDataEn.json' : 'resumeDataTr.json';
-        this.props.loadResumeFromPathCallback(resumeDataPath);
+        this.props.loadResumeFromPathCallback(resumeDataPath, this.props.appComponent);
     }
     
     changeCurrentActiveLang(oppositeLangIconId){

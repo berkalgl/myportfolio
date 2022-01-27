@@ -1,54 +1,41 @@
-import React, { Component } from "react";
+import React from "react";
 import './App.scss';
 import Header from './components/Header';
 import LanguageIcons from "./components/LanguageIcons";
 import Intro from "./components/Intro";
+import {Get} from "./utils/apiHelper";
 
-class App extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      resumeData: {},
-      sharedData: {},
-    };
-  }
-  
-  componentDidMount(){
-    this.loadSharedData(this);
-  }
+export default function App() {
+  const [resumeData, setResumeData] = React.useState({});
+  const [sharedData, setSharedData] = React.useState({});
 
-  loadResumeFromPath(path){
-     fetch(path)
-        .then(results => results.json())
-        .then(data => {      
-          this.setState({resumeData: data});
-        })
-        .catch((error) => {
-          alert(error);
-        });
-  }
-
-  loadSharedData(component){
-    fetch('shared_data.json')
-      .then(results => results.json())
-      .then(data => {      
-        component.setState({sharedData: data});
-        document.title = `${this.state.sharedData.basic_info.name}`
-      })
-      .catch((error) => {
+  const loadResumeFromPath = (path) => {
+    Get(
+      path,
+      (data) => {
+        setResumeData(data);
+      },
+      (error) => {
         alert(error);
       });
   }
+  
+  const loadSharedData = () => {
+    Get(
+      'shared_data.json',
+      (data) => {
+        setSharedData(data);
+      },
+      (error) => {
+        alert(error);
+      });
+  }  
 
-  render() {
-    return (
-      <div>
-        <Header></Header>
-        <Intro sharedData={this.state.sharedData.basic_info}></Intro>
-        <LanguageIcons loadResumeFromPathCallback = {this.loadResumeFromPath}></LanguageIcons>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <Header></Header>
+      <Intro sharedData={sharedData.basic_info}></Intro>
+      <LanguageIcons loadResumeFromPathCallback = {loadResumeFromPath}></LanguageIcons>
+    </div>
+  )
 }
-
-export default App;
