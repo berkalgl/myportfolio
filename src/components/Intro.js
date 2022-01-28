@@ -1,13 +1,9 @@
 import React from "react";
 import Typical from "react-typical";
-import {FaTwitter, FaInstagram, FaGithub, FaLinkedin} from 'react-icons/fa'
+import {FaTwitter, FaInstagram, FaGithub, FaLinkedin} from 'react-icons/fa';
+import { Icon } from '@iconify/react';
+import Typewriter from 'typewriter-effect';
 
-const HeaderTitleTypeAnimation = titles => {
-    return(
-        <Typical className="title-styles" steps={titles} loop={50}></Typical>
-    )
-}
-const HeaderTitleTypeAnimationComponent = React.memo(HeaderTitleTypeAnimation);
 
 const SocialLogoComponent = props => {
     switch(props.name){
@@ -27,24 +23,42 @@ const SocialComponent = props => {
     if(props.socials !== undefined)
     {
         return (
-            Object.keys(props.socials).map((social, i) => {
-                return(
-                    <a href={props.socials[social].url} target="_blank" rel="noreferrer noopener" className="social-links" key={i}>
-                        <SocialLogoComponent name={props.socials[social].name}></SocialLogoComponent>
-                    </a>
-                )
-        }))
-    }else{
-        return(
-        <div>Loading..</div>
+            <div className="mb-4">
+                {Object.keys(props.socials).map((social, i) => {
+                    return(
+                        <a href={props.socials[social].url} target="_blank" rel="noreferrer noopener" className="social-links" key={i}>
+                            <SocialLogoComponent name={props.socials[social].name}></SocialLogoComponent>
+                        </a>
+                    )
+                })}
+            </div>
         )
     }
 }
 
+const HeaderTitleTypeAnimationComponent = React.memo((titles)=>{
+
+    const converted = Object.values(titles)[0];
+
+    return(
+        <div className="title-container">
+        <Typewriter
+          options={{
+            strings: converted,
+            autoStart: true,
+            loop: true,
+            delay: 50,
+            wrapperClassName: 'title-styles',
+            cursorClassName: 'title-styles',
+          }}
+        />
+        </div>
+    )}, (props,prevProp) => true);
+
 export default function Intro(props){
   const {sharedData} = props;
   const [name] = React.useState(sharedData.name);
-  const [titles] = React.useState(sharedData.titles.map(x => [ x.toUpperCase(), 1500 ] ).flat());
+  const [titles] = React.useState(sharedData.titles);
   const [socials] = React.useState(sharedData.social);
 
   return(
@@ -53,17 +67,12 @@ export default function Intro(props){
         <div className="row aligner" style={{ height: '100%'}}>
             <div className="col-md-12">
                 <div>
-                    <span className="iconify intro-icon" data-icon="la:laptop-code" data-inline="false "></span>
-                    <br/>
+                    <Icon icon="la:laptop-code" width="150" hFlip={true} className="" />
                     <h1 className="mb-0">
                         <Typical steps={[name]} wrapper="p"/>
                     </h1>
-                    <div className="title-container">
-                        <HeaderTitleTypeAnimationComponent titles={titles}></HeaderTitleTypeAnimationComponent>
-                    </div>
-                    <div className="mb-4">
-                        <SocialComponent socials={socials}></SocialComponent>
-                    </div>
+                    <HeaderTitleTypeAnimationComponent titles={titles}></HeaderTitleTypeAnimationComponent>
+                    <SocialComponent socials={socials}></SocialComponent>
                 </div>
             </div>
         </div>

@@ -25,6 +25,7 @@ export default function App() {
       'shared_data.json',
       (data) => {
         setSharedData(data);
+        document.title = data.basic_info.name;
       },
       (error) => {
         alert(error);

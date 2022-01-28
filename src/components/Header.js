@@ -1,13 +1,14 @@
 import React from "react";
 import Switch from "react-switch";
 import '../scss/header.scss';
+import { Icon } from '@iconify/react';
 
 export default function Header(props){
     const {githubLink} = props;
     const [checked, setChecked] = React.useState(false);
 
-    const onThemeSwitchChange = (event) => {
-        setChecked(event.target.checked);
+    const onThemeSwitchChange = (checked) => {
+        setChecked(checked);
         setTheme();
     }
 
@@ -37,34 +38,32 @@ export default function Header(props){
                     width={90}
                     height={40}
                     uncheckedIcon={
-                    <span
-                        className="iconify"
-                        data-icon="twemoji:owl"
+                    <Icon 
+                        icon="emojione:waxing-crescent-moon"
                         data-inline="false"
                         style={{
-                        display: "block",
-                        height: "100%",
-                        fontSize: 25,
-                        textAlign: "end",
-                        marginLeft: "20px",
-                        color: "#353239",
+                            display: "block",
+                            height: "100%",
+                            fontSize: 25,
+                            textAlign: "end",
+                            marginLeft: "20px",
+                            color: "#353239",
                         }}
-                    ></span>
+                    />
                     }
                     checkedIcon={
-                    <span
-                        className="iconify"
-                        data-icon="noto-v1:sun-with-face"
+                    <Icon 
+                        icon="noto-v1:sun-with-face"
                         data-inline="false"
                         style={{
-                        display: "block",
-                        height: "100%",
-                        fontSize: 25,
-                        textAlign: "end",
-                        marginLeft: "10px",
-                        color: "#353239",
+                            display: "block",
+                            height: "100%",
+                            fontSize: 25,
+                            textAlign: "end",
+                            marginLeft: "10px",
+                            color: "#353239",
                         }}
-                    ></span>
+                    />
                     }
                     id="icon-switch"
                 />
