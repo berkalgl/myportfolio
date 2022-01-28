@@ -9,6 +9,19 @@ const HeaderTitleTypeAnimation = titles => {
 }
 const HeaderTitleTypeAnimationComponent = React.memo(HeaderTitleTypeAnimation);
 
+const SocialLogoComponent = props => {
+    switch(props.name){
+        case 'github':
+            return <FaGithub />;
+        case 'linkedin':
+            return <FaLinkedin />;
+        case 'twitter':
+            return <FaTwitter />;
+        default:
+            return <FaInstagram />;
+    }
+}
+
 const SocialComponent = props => {
     
     if(props.socials !== undefined)
@@ -17,17 +30,7 @@ const SocialComponent = props => {
             Object.keys(props.socials).map((social, i) => {
                 return(
                     <a href={props.socials[social].url} target="_blank" rel="noreferrer noopener" className="social-links" key={i}>
-                        {/* {(() => {
-                                if(props.socials[social].name === "github"){
-                                    return <FaGithub />
-                                }else if(props.socials[social].name === "linkedin"){
-                                    return <FaLinkedin />
-                                }else if(props.socials[social].name === "twitter"){
-                                    return <FaTwitter />
-                                }else{
-                                    return <FaInstagram />
-                            }
-                        })} */}
+                        <SocialLogoComponent name={props.socials[social].name}></SocialLogoComponent>
                     </a>
                 )
         }))
@@ -56,7 +59,7 @@ export default function Intro(props){
                         <Typical steps={[name]} wrapper="p"/>
                     </h1>
                     <div className="title-container">
-                    <HeaderTitleTypeAnimationComponent titles={titles}></HeaderTitleTypeAnimationComponent>
+                        <HeaderTitleTypeAnimationComponent titles={titles}></HeaderTitleTypeAnimationComponent>
                     </div>
                     <div className="mb-4">
                         <SocialComponent socials={socials}></SocialComponent>
