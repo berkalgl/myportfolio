@@ -39,7 +39,7 @@ export default function App() {
   {
     return (
       <div>
-        <Header></Header>
+        <Header githubLink={sharedData.basic_info.social[0].url}></Header>
         <Intro sharedData={sharedData.basic_info}></Intro>
         <LanguageIcons loadResumeFromPathCallback = {loadResumeFromPath}></LanguageIcons>
       </div>
