@@ -1,58 +1,51 @@
-import React, { Component } from "react";
+import { Icon } from "@iconify/react";
+import React from "react";
+    
+const changePickedLanguage = (pickedLanguage, oppositeLangIconId, loadResumeFromPathCallback) => {
+    if(document.documentElement.lang !== pickedLanguage)
+    {
+        var pickedLangIconId = oppositeLangIconId === window.$primaryLanguageIconId ? window.$secondaryLanguageIconId : window.$primaryLanguageIconId;
+        if(document.getElementById(oppositeLangIconId) !== null && document.getElementById(pickedLangIconId) !== null)
+        {
+            document.getElementById(oppositeLangIconId).removeAttribute("filter", "brightness(40%)");
+            document.getElementById(pickedLangIconId).setAttribute("filter", "brightness(40%)");
+        }
 
-class LanguageIcons extends Component {
-
-    changePickedLanguage(pickedLanguage, oppositeLangIconId) {
-        this.changeCurrentActiveLang(oppositeLangIconId);
         document.documentElement.lang = pickedLanguage;
         var resumeDataPath = document.documentElement.lang === window.$primaryLanguage ? 'resumeDataEn.json' : 'resumeDataTr.json';
-        this.props.loadResumeFromPathCallback(resumeDataPath, this.props.appComponent);
-    }
-    
-    changeCurrentActiveLang(oppositeLangIconId){
-        var pickedLangIconId = oppositeLangIconId === window.$primaryLanguageIconId ? window.$secondaryLanguageIconId : window.$primaryLanguageIconId;
-        document.getElementById(oppositeLangIconId).removeAttribute("filter", "brightness(40%)");
-        document.getElementById(pickedLangIconId).setAttribute("filter", "brightness(40%)");
-    }
-    
-    componentDidMount(){
-        this.changePickedLanguage(window.$primaryLanguage,window.$secondaryLanguageIconId);
-    }
-
-    render(){
-        return(
-            <div className="col-md-12 mx-auto text-center language">
-                <div
-                    onClick={() =>
-                        this.changePickedLanguage(window.$primaryLanguage, window.$secondaryLanguageIconId)
-                    }
-                    style={{ display: "inline"}}
-                >
-                    <span
-                        className="iconify language-icon mr-5"
-                        data-icon="twemoji-flag-for-flag-united-kingdom"
-                        data-inline="false"
-                        id={window.$primaryLanguageIconId}
-                    >
-                    </span>
-                </div>
-                <div
-                    onClick={()=> 
-                        this.changePickedLanguage(window.$secondaryLanguage, window.$primaryLanguageIconId)
-                    }
-                    style={{display: "inline"}}
-                    >
-                    <span
-                        className="iconify language-icon"
-                        data-icon="twemoji-flag-for-flag-turkey"
-                        data-inline="false"
-                        id={window.$secondaryLanguageIconId}
-                    >
-                    </span>
-                </div>
-            </div>
-        )
+        loadResumeFromPathCallback(resumeDataPath, appComponent);
     }
 }
 
-export default LanguageIcons;
+export default function LanguageIcons(props){
+    const {loadResumeFromPathCallback} = props;
+
+    return(
+        <div className="col-md-12 mx-auto text-center language">
+            <div
+                onClick={() => changePickedLanguage(window.$primaryLanguage, window.$secondaryLanguageIconId,loadResumeFromPathCallback)}
+                style={{ display: "inline"}}
+            >
+                <Icon 
+                    icon="twemoji-flag-for-flag-united-kingdom"
+                    data-inline="false"
+                    id={window.$primaryLanguageIconId}
+                    className="language-icon"
+                    style={{ marginRight: 15 }}
+                    filter= "brightness(40%)"
+                />
+            </div>
+            <div
+                onClick={() => changePickedLanguage(window.$secondaryLanguage, window.$primaryLanguageIconId,loadResumeFromPathCallback, appComponent)}
+                style={{display: "inline"}}
+                >
+                    <Icon 
+                        icon="twemoji-flag-for-flag-turkey"
+                        data-inline="false"
+                        id={window.$secondaryLanguageIconId}
+                        className="language-icon"
+                    />
+            </div>
+        </div>
+    )
+}

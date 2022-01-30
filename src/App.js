@@ -8,12 +8,15 @@ import {Get} from "./utils/apiHelper";
 export default function App() {
   const [resumeData, setResumeData] = React.useState({});
   const [sharedData, setSharedData] = React.useState({});
+  const [resumeDataLoading, setResumeDataLoading] = React.useState(true);
+  const [sharedDataLoading, setSharedDataLoading] = React.useState(true);
 
   const loadResumeFromPath = async (path) => {
     await Get(
       path,
       (data) => {
         setResumeData(data);
+        setResumeDataLoading(true);
       },
       (error) => {
         alert(error);
@@ -25,6 +28,7 @@ export default function App() {
       'shared_data.json',
       (data) => {
         setSharedData(data);
+        setSharedDataLoading(true);
         document.title = data.basic_info.name;
       },
       (error) => {
@@ -34,9 +38,10 @@ export default function App() {
 
   React.useEffect(() => {
     loadSharedData();
+    loadResumeFromPath('resumeDataEn.json');
   }, [])
 
-  if(sharedData.basic_info !== undefined)
+  if(sharedData.basic_info !== undefined && resumeData.basic_info !== undefined)
   {
     return (
       <div>
@@ -47,7 +52,7 @@ export default function App() {
     )
   }else{
     return(
-      <div>Loading..</div>
+      <div>Loading...</div>
     )
   }
 }
