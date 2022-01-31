@@ -1,6 +1,9 @@
 export const Get = (url, successCallback, errorCallback) => {
-    return fetch(url)
+    return setTimeout( function () {
+        fetch(url)
             .then(response => response.json())
             .then(data => successCallback(data))
-            .catch((error) => errorCallback(error));
+            .catch((error) => errorCallback(error))
+        },3000
+    )
 }

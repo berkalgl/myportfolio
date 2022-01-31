@@ -34,6 +34,27 @@ html {
 	margin-top: -10px
 }
 
+.loader-parent{
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+	height: 100vh;
+	background: #e9d5a1;
+}
+
+.loader-text{
+	display:flex; 
+	-direction:row;
+}
+
+.loader{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	text-align: center;
+}
+
 #intro {
 	position: relative;
 	height: 520px;
@@ -84,7 +105,7 @@ html {
 	padding-top: 80px;
 }
 
-#intro h1 {
+#intro h1, .loader-text {
 	font-size: 400%;
 	text-align: center;
 	font-weight: 600 !important;

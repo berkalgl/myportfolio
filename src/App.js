@@ -4,19 +4,21 @@ import Header from './components/Header';
 import LanguageIcons from "./components/LanguageIcons";
 import Intro from "./components/Intro";
 import {Get} from "./utils/apiHelper";
+import { TailSpin } from  'react-loader-spinner';
+import Typewriter from 'typewriter-effect';
 
 export default function App() {
   const [resumeData, setResumeData] = React.useState({});
   const [sharedData, setSharedData] = React.useState({});
-  const [resumeDataLoading, setResumeDataLoading] = React.useState(true);
-  const [sharedDataLoading, setSharedDataLoading] = React.useState(true);
+  const [resumeDataLoaded, setResumeDataLoaded] = React.useState(false);
+  const [sharedDataLoaded, setSharedDataLoaded] = React.useState(false);
 
   const loadResumeFromPath = async (path) => {
     await Get(
       path,
       (data) => {
         setResumeData(data);
-        setResumeDataLoading(true);
+        setResumeDataLoaded(true);
       },
       (error) => {
         alert(error);
@@ -28,7 +30,7 @@ export default function App() {
       'shared_data.json',
       (data) => {
         setSharedData(data);
-        setSharedDataLoading(true);
+        setSharedDataLoaded(true);
         document.title = data.basic_info.name;
       },
       (error) => {
@@ -40,8 +42,8 @@ export default function App() {
     loadSharedData();
     loadResumeFromPath('resumeDataEn.json');
   }, [])
-
-  if(sharedData.basic_info !== undefined && resumeData.basic_info !== undefined)
+  
+  if(resumeDataLoaded && sharedDataLoaded)
   {
     return (
       <div>
@@ -52,7 +54,26 @@ export default function App() {
     )
   }else{
     return(
-      <div>Loading...</div>
+      <div>
+        <div className="loader-parent"></div>
+        <div className="loader">
+          <TailSpin color="#353239" height={150} width={150} className="loader"/>
+          <div className="loader-text">
+            <div>Loading</div>
+            <div>
+              <Typewriter
+                options={{
+                  strings: ['...'],
+                  autoStart: true,
+                  loop: true,
+                  delay: 50,
+                  cursor: ''
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     )
   }
 }

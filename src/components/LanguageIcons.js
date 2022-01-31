@@ -13,7 +13,7 @@ const changePickedLanguage = (pickedLanguage, oppositeLangIconId, loadResumeFrom
 
         document.documentElement.lang = pickedLanguage;
         var resumeDataPath = document.documentElement.lang === window.$primaryLanguage ? 'resumeDataEn.json' : 'resumeDataTr.json';
-        loadResumeFromPathCallback(resumeDataPath, appComponent);
+        loadResumeFromPathCallback(resumeDataPath);
     }
 }
 
@@ -36,7 +36,7 @@ export default function LanguageIcons(props){
                 />
             </div>
             <div
-                onClick={() => changePickedLanguage(window.$secondaryLanguage, window.$primaryLanguageIconId,loadResumeFromPathCallback, appComponent)}
+                onClick={() => changePickedLanguage(window.$secondaryLanguage, window.$primaryLanguageIconId,loadResumeFromPathCallback)}
                 style={{display: "inline"}}
                 >
                     <Icon 
