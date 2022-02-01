@@ -4,6 +4,6 @@ export const Get = (url, successCallback, errorCallback) => {
             .then(response => response.json())
             .then(data => successCallback(data))
             .catch((error) => errorCallback(error))
-        },3000
+        },2000
     )
 }
