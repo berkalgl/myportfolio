@@ -3,6 +3,7 @@ import './App.scss';
 import Header from './components/Header';
 import LanguageIcons from "./components/LanguageIcons";
 import Intro from "./components/Intro";
+import About from "./components/About";
 import {Get} from "./utils/apiHelper";
 import { TailSpin } from  'react-loader-spinner';
 import Typewriter from 'typewriter-effect';
@@ -50,6 +51,7 @@ export default function App() {
         <Header githubLink={sharedData.basic_info.social[0].url}></Header>
         <Intro sharedData={sharedData.basic_info}></Intro>
         <LanguageIcons loadResumeFromPathCallback = {loadResumeFromPath}></LanguageIcons>
+        <About resumeData={resumeData} sharedData={sharedData}></About>
       </div>
     )
   }else{
