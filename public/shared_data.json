@@ -24,7 +24,9 @@
           "class": "fab fa-twitter"
         }
       ],
-      "image": "profile1.jpg"
+      "image": "profile1.jpg",
+      "resume": "BerkAlgulCV.pdf",
+      "email": "berkalgull@gmail.com"
     },
     "skills": {
       "icons": [
