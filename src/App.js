@@ -4,6 +4,7 @@ import Header from './components/Header';
 import LanguageIcons from "./components/LanguageIcons";
 import Intro from "./components/Intro";
 import About from "./components/About";
+import Footer from "./components/Footer";
 import {Get} from "./utils/apiHelper";
 import { TailSpin } from  'react-loader-spinner';
 import Typewriter from 'typewriter-effect';
@@ -52,6 +53,7 @@ export default function App() {
         <Intro sharedData={sharedData.basic_info}></Intro>
         <LanguageIcons loadResumeFromPathCallback = {loadResumeFromPath}></LanguageIcons>
         <About resumeData={resumeData} sharedData={sharedData}></About>
+        <Footer sharedData={sharedData.basic_info}></Footer>
       </div>
     )
   }else{

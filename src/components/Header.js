@@ -20,7 +20,7 @@ export default function Header(props){
     }
 
     return (
-        <div>
+        <header>
             <a href={githubLink} target="_blank" className="github-corner" aria-label="View source on GitHub" rel="noreferrer">
                 <svg width="90" height="90" viewBox="0 0 250 250" className="github-corner-svg" aria-hidden="true">
                     <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -68,6 +68,6 @@ export default function Header(props){
                     id="icon-switch"
                 />
             </div>
-        </div>
+        </header>
     )
 }
