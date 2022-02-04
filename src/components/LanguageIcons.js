@@ -2,16 +2,9 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import '../scss/language-icons.scss';
     
-const changePickedLanguage = (pickedLanguage, oppositeLangIconId, loadResumeFromPathCallback) => {
+const changePickedLanguage = (pickedLanguage, loadResumeFromPathCallback) => {
     if(document.documentElement.lang !== pickedLanguage)
     {
-        var pickedLangIconId = oppositeLangIconId === window.$primaryLanguageIconId ? window.$secondaryLanguageIconId : window.$primaryLanguageIconId;
-        if(document.getElementById(oppositeLangIconId) !== null && document.getElementById(pickedLangIconId) !== null)
-        {
-            document.getElementById(oppositeLangIconId).removeAttribute("filter", "brightness(40%)");
-            document.getElementById(pickedLangIconId).setAttribute("filter", "brightness(40%)");
-        }
-
         document.documentElement.lang = pickedLanguage;
         var resumeDataPath = document.documentElement.lang === window.$primaryLanguage ? 'resumeDataEn.json' : 'resumeDataTr.json';
         loadResumeFromPathCallback(resumeDataPath);
@@ -20,6 +13,8 @@ const changePickedLanguage = (pickedLanguage, oppositeLangIconId, loadResumeFrom
 
 export default function LanguageIcons(props){
     const {loadResumeFromPathCallback} = props;
+
+    const lang = document.documentElement.lang;
 
     return(
         <div className="col-md-12 mx-auto text-center language">
@@ -33,19 +28,20 @@ export default function LanguageIcons(props){
                     id={window.$primaryLanguageIconId}
                     className="language-icon"
                     style={{ marginRight: 15 }}
-                    filter= "brightness(40%)"
+                    filter= {lang === window.$primaryLanguage ? "brightness(40%)" : ""}
                 />
             </div>
             <div
                 onClick={() => changePickedLanguage(window.$secondaryLanguage, window.$primaryLanguageIconId,loadResumeFromPathCallback)}
                 style={{display: "inline"}}
-                >
-                    <Icon 
-                        icon="twemoji-flag-for-flag-turkey"
-                        data-inline="false"
-                        id={window.$secondaryLanguageIconId}
-                        className="language-icon"
-                    />
+            >
+                <Icon 
+                    icon="twemoji-flag-for-flag-turkey"
+                    data-inline="false"
+                    id={window.$secondaryLanguageIconId}
+                    className="language-icon"
+                    filter= {lang === window.$secondaryLanguage ? "brightness(40%)" : ""}
+                />
             </div>
         </div>
     )

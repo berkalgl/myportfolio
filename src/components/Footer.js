@@ -10,7 +10,7 @@ function Footer(props) {
                 <Social socials={sharedData.social} className="social-links-footer"></Social>
             </div>
             <div className="copyright">
-                <p class="copyright text-muted small">Copyright &copy; Berk ALĞÜL 2022. All Rights Reserved</p>
+                <p className="copyright text-muted small">Copyright &copy; Berk ALĞÜL 2022. All Rights Reserved</p>
             </div>
         </footer>
     )

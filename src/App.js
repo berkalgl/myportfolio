@@ -16,6 +16,7 @@ export default function App() {
   const [sharedDataLoaded, setSharedDataLoaded] = React.useState(false);
 
   const loadResumeFromPath = async (path) => {
+    setResumeDataLoaded(false);
     await Get(
       path,
       (data) => {
@@ -43,6 +44,7 @@ export default function App() {
   React.useEffect(() => {
     loadSharedData();
     loadResumeFromPath('resumeDataEn.json');
+    console.log('use effect called');
   }, [])
   
   if(resumeDataLoaded && sharedDataLoaded)
