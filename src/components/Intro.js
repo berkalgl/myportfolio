@@ -1,40 +1,9 @@
 import React from "react";
 import Typical from "react-typical";
-import {FaTwitter, FaInstagram, FaGithub, FaLinkedin} from 'react-icons/fa';
 import { Icon } from '@iconify/react';
 import Typewriter from 'typewriter-effect';
-
-
-const SocialLogoComponent = props => {
-    switch(props.name){
-        case 'github':
-            return <FaGithub />;
-        case 'linkedin':
-            return <FaLinkedin />;
-        case 'twitter':
-            return <FaTwitter />;
-        default:
-            return <FaInstagram />;
-    }
-}
-
-const SocialComponent = props => {
-    
-    if(props.socials !== undefined)
-    {
-        return (
-            <div className="mb-4">
-                {Object.keys(props.socials).map((social, i) => {
-                    return(
-                        <a href={props.socials[social].url} target="_blank" rel="noreferrer noopener" className="social-links" key={i}>
-                            <SocialLogoComponent name={props.socials[social].name}></SocialLogoComponent>
-                        </a>
-                    )
-                })}
-            </div>
-        )
-    }
-}
+import Social from "./Social";
+import '../scss/intro.scss';
 
 const HeaderTitleTypeAnimationComponent = React.memo((titles)=>{
 
@@ -72,7 +41,7 @@ export default function Intro(props){
                         <Typical steps={[name]} wrapper="p"/>
                     </h1>
                     <HeaderTitleTypeAnimationComponent titles={titles}></HeaderTitleTypeAnimationComponent>
-                    <SocialComponent socials={socials}></SocialComponent>
+                    <Social socials={socials} className="social-links-intro"></Social>
                 </div>
             </div>
         </div>

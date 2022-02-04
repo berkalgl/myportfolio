@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import '../scss/language-icons.scss';
     
 const changePickedLanguage = (pickedLanguage, oppositeLangIconId, loadResumeFromPathCallback) => {
     if(document.documentElement.lang !== pickedLanguage)
