@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import {Get} from "./utils/apiHelper";
 import { TailSpin } from  'react-loader-spinner';
 import Typewriter from 'typewriter-effect';
+import WorkExperience from "./components/WorkExperience";
 
 export default function App() {
   const [resumeData, setResumeData] = React.useState({});
@@ -55,6 +56,7 @@ export default function App() {
         <Intro sharedData={sharedData.basic_info}></Intro>
         <LanguageIcons loadResumeFromPathCallback = {loadResumeFromPath}></LanguageIcons>
         <About resumeData={resumeData} sharedData={sharedData}></About>
+        <WorkExperience resumeData={resumeData}></WorkExperience>
         <Footer sharedData={sharedData.basic_info}></Footer>
       </div>
     )
