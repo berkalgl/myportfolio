@@ -3,6 +3,9 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 import { Icon } from '@iconify/react';
 import Badge from "react-bootstrap/Badge";
+import '../scss/work-experience.scss';
+
+const FirstIconStyle = { background: 'rgb(174, 148, 79)', color: 'rgb(255, 255, 255)', textAlign: 'center' }
 
 const MainTechElement = mainTechs => {
     return(
@@ -89,7 +92,7 @@ function WorkExperience(props) {
                     <VerticalTimeline>
                         <WorkExperienceElements experiences={resumeData.experience}></WorkExperienceElements>
                         <VerticalTimelineElement
-                            iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
+                            iconStyle={FirstIconStyle}
                             icon={<Icon icon="bytesize:work" />}
                         />
                     </VerticalTimeline>
